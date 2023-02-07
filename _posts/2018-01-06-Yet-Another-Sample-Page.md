@@ -1,5 +1,5 @@
 ---
-title: Yet Another Sample Page
+title: El primer paso...
 published: true
 ---
 
