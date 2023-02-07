@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-{% include head.html %}
+<html><head><meta charset="utf-8"></head><head></head><body>{% include head.html %}
 
-<body>
+
   <div id="wrapper">
     {% include header.html %}
     <div class="container">
@@ -12,14 +11,14 @@
     </div>
   </div>
 
-  {% if paginator.total_pages > 1 %}
+  {% if paginator.total_pages &gt; 1 %}
   <div class="pagination">
     {% if paginator.previous_page == 1 %}
-    <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&laquo;</a>
+    <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">«</a>
     {% elsif paginator.previous_page%}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&laquo;</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">«</a>
     {% else %}
-    <span class="page-item">&laquo;</span>
+    <span class="page-item">«</span>
     {% endif %} {% for page in (1..paginator.total_pages) %} {% if page == paginator.page %}
     <span class="page-item">{{ page }}</span>
     {% elsif page == 1 %}
@@ -27,9 +26,9 @@
     {% else %}
     <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="page-item">{{ page }}</a>
     {% endif %} {% endfor %} {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">»</a>
     {% else %}
-    <span class="page-item">&raquo;</span>
+    <span class="page-item">»</span>
     {% endif %}
   </div>
   {% endif %} {% include footer.html %}
@@ -37,6 +36,6 @@
   {% if site.google_analytics %}
     {% include analytics.html %}
   {% endif %}
-</body>
 
-</html>
+
+</body></html>
