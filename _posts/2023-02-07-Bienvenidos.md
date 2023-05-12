@@ -30,7 +30,12 @@ var fun = function lang(l) {
   return true;
 }
 ```
+```sql
+--SQL code with syntax highlighting
+SELECT * 
+FROM DBA_USERS;
 
+```
 ```ruby
 # Ruby code with syntax highlighting
 GitHubPages::Dependencies.gems.each do |gem, version|
