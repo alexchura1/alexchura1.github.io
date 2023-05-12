@@ -1,9 +1,9 @@
-title: Mi blog Personal
-description: "Un pequeño espacio de aprendizaje"
+title: Auxiliatura Administracion de bases de datos II/2023
+description: "Todo el contenido estara disponible por este medio"
 author:
-  name: "SrGalletito"
-  email: "churaalex56@gmail.com"
-  url: "https:srgalletitoo.github.io"
+  name: "Alex Chura"
+  email: "churaalex57@gmail.com"
+  url: "https:alexchura1.github.io"
 
 baseurl: /
 
@@ -28,5 +28,5 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "SrGalletito"
+owner : "Alex Chura"
 year : "2023"
