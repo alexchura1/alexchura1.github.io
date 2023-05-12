@@ -1,6 +1,6 @@
 ---
 title: Bienvenidos a mi pagina
-published: false
+published: true
 ---
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
