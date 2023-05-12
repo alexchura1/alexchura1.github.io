@@ -34,7 +34,6 @@ var fun = function lang(l) {
 --SQL code with syntax highlighting
 SELECT * 
 FROM DBA_USERS;
-
 ```
 ```ruby
 # Ruby code with syntax highlighting
