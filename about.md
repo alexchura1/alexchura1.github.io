@@ -7,7 +7,7 @@ La Administración de Bases de Datos es una asignatura esencial en el campo de l
 
 Aspectos destacados:
 
-1. **Disponibilidad:** Los estudiantes aprenderán a garantizar que la base de datos esté siempre disponible y accesible para los usuarios autorizados. Se abordarán conceptos como alta disponibilidad, redundancia, replicación y técnicas de respaldo y recuperación para proteger la información en caso de fallos o desastres.
+1. _Disponibilidad:_ Los estudiantes aprenderán a garantizar que la base de datos esté siempre disponible y accesible para los usuarios autorizados. Se abordarán conceptos como alta disponibilidad, redundancia, replicación y técnicas de respaldo y recuperación para proteger la información en caso de fallos o desastres.
 
 2. **Configuración y ajuste del sistema:** Se enseñará a configurar y optimizar los parámetros del sistema de gestión de bases de datos para mejorar el rendimiento y la eficiencia. Los estudiantes aprenderán a identificar cuellos de botella y a aplicar técnicas de ajuste para maximizar el rendimiento del sistema.
 
