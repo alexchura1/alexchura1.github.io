@@ -5,7 +5,7 @@ title: About
 
 La Administración de Bases de Datos es una asignatura esencial en el campo de la informática y la gestión de datos. En esta materia, los estudiantes adquieren conocimientos y habilidades para administrar y mantener eficientemente sistemas de gestión de bases de datos, centrándose en la disponibilidad, configuración y seguridad de los datos.
 
-Aspectos destacados:
+### [](#header-3)Aspectos destacados:
 
 **Disponibilidad:** Los estudiantes aprenderán a garantizar que la base de datos esté siempre disponible y accesible para los usuarios autorizados. Se abordarán conceptos como alta disponibilidad, redundancia, replicación y técnicas de respaldo y recuperación para proteger la información en caso de fallos o desastres.
 
