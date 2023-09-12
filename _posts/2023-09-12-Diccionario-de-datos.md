@@ -52,5 +52,22 @@ Puede escribir consultas para buscar información de un nombre de vista en parti
 #### [](#header-4)Ejemplo:
 
 ```sql
+-- En este ejemplo que se muestra, se describe la vista DICTIONARY la cual tiene dos columnas.
 DESCRIBE dictionary;
+``` 
+
+```sql
+--La sentencia SELECT recupera información sobre la vista de diccionario denominada USER OBJECTS. La vista USER OBJECTS contiene información sobre todos los objetos de su propiedad.
+SELECT * 
+FROM  dictionary 
+WHERE table_name = 'USER_OBJECTS';
 ```
+
+```sql
+--Por ejemplo, la siguiente consulta devuelve los nombres de todas las vistas a las que el usuario puede acceder, y que en las que la columna COMMENT contenga la palabra columns:
+SELECT table_name 
+FROM  dictionary
+WHERE LOWER(comments) LIKE '%columns%';
+```
+
+*   La columna de `table_name` siempre va en mayusculas y la columna de `comments` en minuscula.
