@@ -1,5 +1,5 @@
 ---
-title: Aspectos basicos de la auxiliatura
+title: Aspectos basicos de la auxiliatura (Ambos paralelos)
 published: true
 ---
 ## [](#header-2)Paralelo 6 'B'
