@@ -2,9 +2,9 @@
 title: Aspectos basicos de la auxiliatura
 published: true
 ---
-# [](#header-1)Paralelo 6 'B'
+## [](#header-2)Paralelo 6 'B'
 
-# [](#header-2)Ponderaciones
+### [](#header-3)Ponderaciones
 
 En coordinación con el paralelo y su representante se llegaron a establecer las siguientes ponderaciones:  
 
