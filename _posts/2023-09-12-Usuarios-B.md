@@ -1,6 +1,6 @@
 ---
 title: Creacion de usuarios basica en Oracle
-published: false
+published: true
 ---
 
 Para la creacion de usuarios se usa la siguiente sentencia:
