@@ -3,8 +3,6 @@ title: Diccionario de datos Oracle
 published: true
 ---
 
-## [](#header-2)Diccionario de datos Oracle
-
 Las tablas de usuario son tablas creadas por el usuario y contienen datos de negocio; un ejemplo sería `EMPLOYEES`. Hay otra recopilación de tablas y vistas en la base de datos Oracle conocida como diccionario de datos. Esta recopilación la crea y la mantiene Oracle Server y contiene información sobre la base de datos. El diccionario de datos se estructura en tablas y vistas, exactamente igual que otros datos de diccionario. El diccionario de datos no sólo es parte central de cada base de datos Oracle, sino que se trata además de una herramienta importante para todos los usuarios, desde los usuarios finales hasta los diseñadores de aplicaciones y los administradores de base de datos.
   
 Las sentencias SQL se utilizan para acceder al diccionario de datos. Como el diccionario de datos es de sólo lectura, sólo se pueden emitir consultas en las tablas y vistas.  
