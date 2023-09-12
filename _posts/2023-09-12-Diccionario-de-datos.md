@@ -34,3 +34,23 @@ El usuario `Oracle SYS` es propietario de todas las tablas base y las vistas acc
 | **ALL**               | Vista del usuario ampliada (a lo que puede acceder)|
 | **DBA**               | Vista del administrador de la base de datos (lo que hay en los esquemas de todos)|
 | **V$**                |Datos relacionados con el rendimiento  |
+
+Los diccionarios de datos se componen de juegos de vistas. En muchos casos, un juego se compone de tres vistas que contienen informacion similar y que se diferencien entre si por sus prefijos.
+
+Por ejemplo, hay una vista denominada `USER_OBJECTS`, otra `ALL_OBJECTS` y una tercera `DBA_OBJECTS`.
+
+Estas tres vistas contienen información similar sobre los objetos de la base de datos, excepto en que el ámbito es diferente. `USER_OBJECTS` contiene información sobre objetos que son de su propiedad o que ha creado. `ALL_OBJECTS` contiene información sobre todos los objetos a los que tiene acceso. `DBA_OBJECTS` contiene información de todos los objetos que son propiedad de todos los usuarios. Para las vistas que tienen los prefijos ALL o DBA, suele existir una columna adicional en la vista denominada OWNER para identificar de quién es propiedad el objeto.
+
+También hay un juego de vistas con el prefijo V$. Estas vistas son dinámicas y contienen información sobre el rendimiento. Las tablas dinámicas de rendimiento no son verdaderas tablas y no deben ser accesibles para la mayoría de los usuarios. Sin embargo, los DBA pueden consultar y crear vistas en las tablas y otorgar acceso a esas vistas a otros usuarios.
+
+### [](#header-3)Uso de las vistas del diccionario
+
+Para familiarizarse con las vistas de diccionario, puede utilizar la vista de diccionario denominada `DICTIONARY`. Contiene el nombre y una breve descripción de cada vista de diccionario a la que tiene acceso.
+
+Puede escribir consultas para buscar información de un nombre de vista en particular o buscar en la columna `COMMENTS` una palabra o una frase.
+
+#### [](#header-4)Ejemplo:
+
+```sql
+DESCRIBE dictionary;
+```
