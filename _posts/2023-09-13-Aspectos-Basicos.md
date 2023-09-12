@@ -24,7 +24,7 @@ Ademas de establecer también puntaje extra por las siguientes actividades:
 
 En base a aprobación de los compañeros y en coordinacion con el representante del paralelo se tiene el siguiente horario: 
 
-*   Martes: 18:00-20:00
+*   Martes: 18:00-20:00 -----> De forma 100% Presencial
 
 ## [](#header-2)Paralelo 6 'C'
 
