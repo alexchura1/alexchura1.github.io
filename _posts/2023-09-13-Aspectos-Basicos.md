@@ -47,4 +47,4 @@ Ademas de establecer también puntaje extra por las siguientes actividades:
 
 En base a aprobación de los compañeros se tiene el siguiente horario: 
 
-*   Miercoles: 21:00 - 22:00
+*   Miercoles: 21:00 - 22:00 -----> De forma 100% Presencial
