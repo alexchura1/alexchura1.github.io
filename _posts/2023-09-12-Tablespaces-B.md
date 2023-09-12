@@ -41,7 +41,7 @@ Para comprobar la creacion de nuestro tablespace usamos las vistas:
 *   V$TABLESPACE
 *   DBA_TABLESPACE
 
-#### [](#header-4)Ejemplos
+### [](#header-3)Ejemplos
 
 *   Ejemplo 1:
 
@@ -74,3 +74,21 @@ DATAFILE 'C:\datafiles\TBSDATAFILE02.DBF' SIZE 10M,
          'C:\datafiles\TBSDATAFILE04.DBF' SIZE 10M
 AUTOEXTEND OFF;
 ```
+### [](#header-3)Ejercicios
+
+*   Ejercicio 1:
+
+Crear tablespace TBSPRUEBA3 con los siguientes parametros:
+
+*   Tamaño inicial del datafile de 50MB
+*   Autoextendido Encendido
+*   Saltos de 5MB
+*   Tamaño maximo de 100MB
+
+*   Ejercicio 2:
+
+Crear tablespace TBSPRUEBA4 con los siguientes parametros:
+
+*   Tamaño inicial de los datafiles de 15MB (3 datafiles)
+*   Autoextendido apagado
+
