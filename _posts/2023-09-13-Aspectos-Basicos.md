@@ -22,7 +22,7 @@ Ademas de establecer también puntaje extra por las siguientes actividades:
 
 ### [](#header-3)Horario
 
-En base a aprobación de los compañeros se tiene el siguiente horario: 
+En base a aprobación de los compañeros y en coordinacion con el representante del paralelo se tiene el siguiente horario: 
 
 *   Martes: 18:00-20:00
 
