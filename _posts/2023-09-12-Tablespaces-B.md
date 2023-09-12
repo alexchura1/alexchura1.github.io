@@ -1,6 +1,6 @@
 ---
 title: Tablespaces en Oracle
-published: false
+published: true
 ---
 
 ### [](#header-3)Concepto sobre tablespaces
