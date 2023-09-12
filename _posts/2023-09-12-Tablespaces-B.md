@@ -1,5 +1,4 @@
 ---
-title: Tablespaces en Oracle
+title: Another Sample Page
 published: true
 ---
-
