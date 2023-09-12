@@ -2,6 +2,7 @@
 title: Aspectos basicos de la auxiliatura (Ambos paralelos)
 published: true
 ---
+
 ## [](#header-2)Paralelo 6 'B'
 
 ### [](#header-3)Ponderaciones
