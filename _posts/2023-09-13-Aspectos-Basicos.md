@@ -28,7 +28,9 @@ En base a aprobación de los compañeros y en coordinacion con el representante 
 
 ### [](#header-3)Links:
 
-[Link to another page](https://youtu.be/UnIYZVMkkKs).
+[Repaso 1](https://youtu.be/UnIYZVMkkKs)
+[Repaso 1](https://youtu.be/iskmOPTuAS4)
+[Repaso 1](https://youtu.be/vSDd2BQtWP4)
 
 ## [](#header-2)Paralelo 6 'C'
 
