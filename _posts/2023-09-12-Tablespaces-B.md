@@ -31,7 +31,7 @@ Para crear un tablespace se emplea el comando CREATE TABLESPACE, su sintaxis bá
 
 ```sql
 CREATE TABLESPACE nombre_tablespace
-DATAFILE 'ruta/datafile01.dbf' SIZE 100M,
+DATAFILE 'ruta/datafile01.dbf' SIZE 100M
 [AUTOEXTEND ON|OFF [NEXT 10M] [MAXSIZE 200M]]
 [ONLINE | OFFLINE];
 ```
@@ -54,7 +54,7 @@ Crear tablespace TBSPRUEBA1 con los siguientes parametros:
 
 ```sql
 CREATE TABLESPACE TBSPRUEBA1
-DATAFILE 'ruta/datafile01.dbf' SIZE 20M,
+DATAFILE 'ruta/datafile01.dbf' SIZE 20M
 AUTOEXTEND ON
 NEXT 10M
 MAXSIZE 50M;
