@@ -54,6 +54,21 @@ DESCRIBE DBA_USERS;
 SELECT * FROM DBA_USERS;
 ```
 
+### [](#header-3)Asignacion de privilegios
+
+La asignacion de privilegios se divide en 2 categorias, dependiendo su objetivo, tenemos la asignacion de privilegios de sistema y asignacion de privilegios de objetos.
+
+La asignacion de privilegios de sistema se hace mediante la siguiente sentencia:
+
+```sql
+GRANT (PRIVILEGIO) TO (USUARIO);
+```
+
+La asignacion de privilegios sobre objetos se hace mediante la siguiente sentencia:
+
+```sql
+GRANT (SELECT,UPDATE,DELETE,ETC) ON (ESQUEMA.TABLA) TO (USUARIO);
+```
 ### [](#header-3)Ejercicio
 
 Creamos el usuario `iniciales_user`, con los siguientes parametros:
