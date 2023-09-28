@@ -40,9 +40,8 @@ En coordinación con el paralelo y su representante se llegaron a establecer las
 
 | Actividad              | Puntaje              |
 |:-----------------------|:---------------------|
-| Asistencia             | -    PTS             |
-| Examen                 | -    PTS             |
-| Practicas en aula      | -    PTS             |
+| Asistencia             | 8    PTS             |
+| Examen                 | 2    PTS             |
 
 Ademas de establecer también puntaje extra por las siguientes actividades: 
 
