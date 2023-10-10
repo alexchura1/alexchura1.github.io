@@ -42,3 +42,45 @@ Con capacidad de parar e iniciar (instrucciones SHUTDOWN y STARTUP) la instancia
 #### [](#header-4)SYSOPER
 
 Permite lo mismo que el anterior salvo: crear y borrar la base de datos y recuperar en todas las formas la base de datos (hay modos de recuperación que requieren el privilegio anterior).
+
+### [](#header-3)Propiedades de los usuarios de oracle
+
+*   Abierta
+*   Bloqueada
+*   Expirada
+*   Expirada y bloqueada
+*   Expirada en periodo de gracia
+
+### [](#header-3)Gestion de usuarios en Oracle
+
+La sentencia de creación de usuarios (que es compatible con SQL estándar) es:
+
+```sql
+CREATE USER name_user
+IDENTIFIED BY password;
+```
+
+Las sentencias SQL por SGBD son: 
+
+```sql
+--mysql
+CREATE USER 'USUARIO'@'localhost' IDENTIFIED BY 'CONTRASE';
+
+--PostgreSQL
+CREATE USER USUARIO WITH PASSWORD 'CONTRASE';
+
+--SQL server
+CREATE LOGIN USUARIO WITH PASSWORD = 'CONTRASE';
+```
+
+El formato completo en Oracle de la instrucción con todas sus cláusulas es:
+
+```sql
+CREATE USER nombre {IDENTIFIED BY password}
+    [DEFAULT TABLESPACE tableSpacePorDefecto]
+    [TEMPORARY TABLESPACE tableSpacetTemporal]
+    [QUOTA {cantidad [K|M] | UNLIMITED} ON tablespace]
+    [PASSWORD EXPIRE]
+    [ACCOUNT {UNLOCK|LOCK}];
+    [PROFILE {perfil | DEFAULT}]
+```
