@@ -85,3 +85,31 @@ CREATE USER nombre {IDENTIFIED BY password}
     [PROFILE {perfil | DEFAULT}]
 ```
 
+### [](#header-3)Ejemplos
+```sql
+CREATE USER lchura IDENTIFIED BY lchura 
+    DEFAULT TABLESPACE USERS
+    QUOTA 15M ON USERS //Se dan 15MBytes de espacio en el tablespace
+    ACCOUNT LOCK; //La cuenta estara bloqueada
+```
+La contraseña, si no se usan comillas dobles, no puede tener ni espacios en blanco ni caracteres nacionales como la eñe. En caso de querer usar estos símbolos se usan comillas dobles, lo que permitirá establecer contraseñas más complejas.
+
+### [](#header-3)Modificacion de usuarios
+
+Cada parámetro indicado anteriormente se puede modificar mediante la instrucción ALTER USER que se utiliza igual que CREATE USER. 
+Ejemplo:
+
+```sql
+ALTER USER nombre
+    DEFAULT TABLESPACE USERS
+    QUOTA UNLIMITED ON USERS;
+```
+
+### [](#header-3)Borrado de usuarios
+Se realiza mediante:
+```sql
+DROP USER usuario [CASCADE]
+```
+ La opción CASCADE elimina los objetos del esquema del usuario antes de eliminar al propio usuario. Es obligatorio si el esquema contiene objetos.
+
+ 
