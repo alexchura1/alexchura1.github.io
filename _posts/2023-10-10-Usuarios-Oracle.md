@@ -64,13 +64,13 @@ Las sentencias SQL por SGBD son:
 
 ```sql
 --mysql
-CREATE USER 'USUARIO'@'localhost' IDENTIFIED BY 'CONTRASE';
+CREATE USER 'USUARIO'@'localhost' IDENTIFIED BY 'CONTRASEÑA';
 
 --PostgreSQL
-CREATE USER USUARIO WITH PASSWORD 'CONTRASE';
+CREATE USER USUARIO WITH PASSWORD 'CONTRASEÑA';
 
 --SQL server
-CREATE LOGIN USUARIO WITH PASSWORD = 'CONTRASE';
+CREATE LOGIN USUARIO WITH PASSWORD = 'CONTRASEÑA';
 ```
 
 El formato completo en Oracle de la instrucción con todas sus cláusulas es:
@@ -84,3 +84,4 @@ CREATE USER nombre {IDENTIFIED BY password}
     [ACCOUNT {UNLOCK|LOCK}];
     [PROFILE {perfil | DEFAULT}]
 ```
+
