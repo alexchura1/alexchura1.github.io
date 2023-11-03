@@ -149,3 +149,117 @@ Se comentan algunos de los privilegios de sistema más importantes:
 | ALTER SYSTEM      | Permite modificar los parámetros y variables del sistema |
 | CREATE TABLE      | Permite crear tablas. Incluye la posibilidad de borrarlas. |
 | GRANT ANY OBJECT PRIVILEGE | Permite conceder privilegios sobre objetos que no son del usuario (pertenecen a otros usuarios) a terceros usuarios.|
+| CREATE ANY TABLE   | Permite crear tablas en otros esquemas de usuario|
+| DROP ANY TABLE     | Permite borrar tablas de otros usuarios   |
+| SELECT ANY TABLE   | Permite seleccionar datos en tablas de otros usuarios|
+| INSERT ANY TABLE   | Permite añadir datos en tablas de otros usuarios |
+| UPDATE ANY TABLE   | Permite actualizar datos en tablas de otros usuarios|
+| DELETE ANY TABLE   | Permite eliminar datos en tablas de otros usuarios|
+
+En la tabla anterior se ha hecho hincapié en los privilegios referidos a las tablas, para otros objetos el funcionamiento es similar: igual que hay CREATE TABLE, se puede usar CREATE VIEW para las vistas o INDEX, TRIGGER, PROCEDURE, SEQUENCE, SYNONYM, TYPE,... y de esa forma podemos conceder privilegio de creación de otros objetos. 
+Lo mismo con el resto de operaciones.
+
+Hay dos privilegios especiales que permiten conceder nivel de DBA, son: SYSDBA y SYSOPER. Se han comentado anteriormente.
+
+### [](#header-3)Privilegios de sistema
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| ALTER SESSION       | Modificar el funcionamiento de la sesión      |
+| ALTER RESOURCE COST | Modifica los parámetros de cálculo de coste de la sesión |
+| RESTRICTED SESSION  | Conectar aunque la base de datos se haya iniciado en modo restringido |
+
+### [](#header-3)Base de datos y sistema
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| ALTER DATABASE      | Modificar la base de datos (privilegio de gran capacidad administrativa) |
+| ALTER SYSTEM        | Modificar los parámetros del sistema           |
+| AUDIT SYSTEM        | Auditar la base de datos                         |
+
+### [](#header-3)Usuarios, roles, privilegios y perfiles
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| CREATE USER         | Crear usuarios pudiendo indicar tablespace por defecto, cuotas y perfiles |
+| ALTER USER          | Modificar al usuario. Permite cambiar la contraseña y modo de autentificación, tablespace por defecto, cuota de uso de disco, roles y el perfil del usuario |
+| DROP USER           | Borrar usuario                                  |
+| CREATE PROFILE      | Crear perfiles                                  |
+| ALTER PROFILE       | Modificar perfiles                              |
+| DROP PROFILE        | Borrar perfiles                                 |
+| CREATE ROLE         | Crear roles                                    |
+| ALTER ANY ROLE      | Modificar roles                                 |
+| GRANT ANY ROLE      | Conceder roles                                  |
+| GRANT ANY PRIVILEGE | Conceder privilegios de sistema                |
+
+### [](#header-3)Directorios
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| CREATE ANY DIRECTORY | Crear directorios                              |
+| DROP ANY DIRECTORY  | Eliminar directorios                           |
+
+### [](#header-3)Tablespaces
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO           | SIGNIFICADO                                    |
+|:------------------   |:----------------------------------------------|
+| CREATE TABLESPACES   | Crear tablespaces                              |
+| ALTER TABLESPACES    | Modificar tablespaces                          |
+| DROP TABLESPACES     | Borrar tablespaces                             |
+| MANAGE TABLESPACE    | Administrar el espacio de tablas para poder hacer copia de seguridad o simplemente quedar online u offline el tablespace |
+| UNLIMITED TABLESPACE | Usa cuota ilimitada al escribir en cualquier tablespace. Este privilegio elimina las cuotas establecidas sobre el usuario, si las hubiera. |
+
+### [](#header-3)Tablas
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| CREATE TABLE        | Crear tablas en el esquema del usuario, incluye insertar, modificar y eliminar datos de la misma; así como eliminar la propia tabla |
+| ALTER ANY TABLE     | Modificar tablas de cualquier usuario          |
+| BACKUP ANY TABLE    | Utilizar la utilidad Export para copiar datos de otros esquemas |
+| CREATE ANY TABLE    | Crear tablas en cualquier esquema               |
+| DELETE ANY TABLE    | Borrar filas de tablas en cualquier esquema     |
+| DROP ANY TABLE      | Borrar tablas en cualquier esquema              |
+| INSERT ANY TABLE    | Añadir datos a cualquier tabla                  |
+| SELECT ANY TABLE    | Seleccionar datos de tablas en cualquier esquema |
+| UPDATE ANY TABLE    | Modificar datos de tablas de cualquier esquema  |
+| LOCK ANY TABLE      | Bloquear tablas, vistas e instantáneas en cualquier esquema |
+| FLASHBACK ANY TABLE | Realizar acción de flashback en tablas, vistas e instantáneas en cualquier esquema |
+
+### [](#header-3)Vistas
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO          | SIGNIFICADO                                    |
+|:------------------  |:----------------------------------------------|
+| CREATE VIEW         | Crear vistas en el esquema del usuario         |
+| CREATE ANY VIEW     | Crear vistas en cualquier esquema               |
+| DROP ANY VIEW       | Borrar cualquier vista en cualquier esquema    |
+| UNDER ANY VIEW      | Crear subvistas                                 |
+
+### [](#header-3)Instantáneas (Snapshots o vistas materializadas)
+
+La lista completa de privilegios es:
+
+| PRIVILEGIO                  | SIGNIFICADO                                    |
+|:--------------------------  |:----------------------------------------------|
+| CREATE MATERIALIZED VIEW   | Crear vistas materializadas (instantáneas)    |
+| CREATE ANY MATERIALIZED VIEW | Crear vistas materializadas (instantáneas) en cualquier esquema |
+| ALTER ANY MATERIALIZED VIEW | Modificar vistas materializadas (instantáneas) en cualquier esquema |
+| DROP ANY MATERIALIZED VIEW  | Borrar vistas materializadas (instantáneas) en cualquier esquema |
+| GLOABL QUERY REWRITE        | Permite realizar operaciones de lectura escritura en instantáneas que usan tablas de otros esquemas |
+| CREATE SNAPSHOT             | Crear instantáneas (obsoleto)                   |
+| ALTER ANY SNAPSHOT          | Modificar instantáneas de cualquier usuario (obsoleto) |
+| CREATE ANY SNAPSHOT         | Crear instantáneas a cualquier usuario (obsoleto) |
+| DROP ANY SNAPSHOT           | Borrar instantáneas (obsoleto) 
