@@ -112,4 +112,40 @@ DROP USER usuario [CASCADE]
 ```
  La opción CASCADE elimina los objetos del esquema del usuario antes de eliminar al propio usuario. Es obligatorio si el esquema contiene objetos.
 
- 
+### [](#header-3)Consulta de usuarios
+La vista administrativa DBA_USERS muestra la lista y configuración de todos los usuarios del sistema. Para observar la estructura de la vista, siempre es conveniente usar DESCRIBE DBA_USERS con el fin de consultar las columnas que nos interesen más:
+```sql
+--Ejecutamos:
+SELECT USERNAME, PASSWORD, ACCOUNT_STATUS, 
+    LOCK_DATE, EXPIRY_DATE, 
+    DEFAULT_TABLESPACE, TEMPORARY_TABLESPACE, 
+    CREATED, PROFILE 
+    FROM DBA_USERS;
+```
+
+### [](#header-3)Ejercicios:
+Crear el usuario LACQ_USERPRUEBA (cambiar LACQ por sus iniciales) con:
+
+*   Password: (numero de carnet)
+*   Tablespace por defecto: TBSPRUEBA 
+*   Tablespace Temporal por defecto TEMP2 
+*   Quota UNLIMITED sobre TBSPRUEBA
+*   ACCOUNT: LOCK
+
+### [](#header-3)Control de privilegios en Oracle
+Los privilegios son permisos que damos a los usuarios para que puedan realizar ciertas operaciones con la base de datos. En Oracle hay más de cien posibles privilegios. Se dividen en:
+*   Privilegios de sistema:Son permisos para modificar el funcionamiento de la base de datos. Son cambios, en definitiva, que afectan a todos los usuarios y usuarias.
+*   Privilegios de objeto: Son permisos que se aplican a un objeto concreto de la base de datos.
+
+### [](#header-3)Privilegios de sistema
+Se comentan algunos de los privilegios de sistema más importantes:
+
+| PRIVILEGIO        | SIGNIFICADO       |
+|:------------------|:------------------|
+| CREATE SESSION     | Permite al usuario conectar con la base de datos|
+| RESTRICTED SESSION | Permite al usuario establecer sesión con la base de datos en caso de que la base de datos esté en modo restringido|
+| ALTER SYSTEM ENABLE RESTRICTED SESSION | Sólo los usuarios con este privilegio puede conectar con la base de datos si ésta se encuentra en este modo.|
+| ALTER DATABASE    | Permite modificar la estructura de la base de datos |
+| ALTER SYSTEM      | Permite modificar los parámetros y variables del sistema |
+| CREATE TABLE      | Permite crear tablas. Incluye la posibilidad de borrarlas. |
+| GRANT ANY OBJECT PRIVILEGE | Permite conceder privilegios sobre objetos que no son del usuario (pertenecen a otros usuarios) a terceros usuarios.|
