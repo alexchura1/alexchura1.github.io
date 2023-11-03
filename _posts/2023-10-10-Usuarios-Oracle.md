@@ -173,8 +173,6 @@ La lista completa de privilegios es:
 
 ### [](#header-3)Base de datos y sistema
 
-La lista completa de privilegios es:
-
 | PRIVILEGIO          | SIGNIFICADO                                    |
 |:------------------  |:----------------------------------------------|
 | ALTER DATABASE      | Modificar la base de datos (privilegio de gran capacidad administrativa) |
@@ -182,8 +180,6 @@ La lista completa de privilegios es:
 | AUDIT SYSTEM        | Auditar la base de datos                         |
 
 ### [](#header-3)Usuarios, roles, privilegios y perfiles
-
-La lista completa de privilegios es:
 
 | PRIVILEGIO          | SIGNIFICADO                                    |
 |:------------------  |:----------------------------------------------|
@@ -200,16 +196,12 @@ La lista completa de privilegios es:
 
 ### [](#header-3)Directorios
 
-La lista completa de privilegios es:
-
 | PRIVILEGIO          | SIGNIFICADO                                    |
 |:------------------  |:----------------------------------------------|
 | CREATE ANY DIRECTORY | Crear directorios                              |
 | DROP ANY DIRECTORY  | Eliminar directorios                           |
 
 ### [](#header-3)Tablespaces
-
-La lista completa de privilegios es:
 
 | PRIVILEGIO           | SIGNIFICADO                                    |
 |:------------------   |:----------------------------------------------|
@@ -220,8 +212,6 @@ La lista completa de privilegios es:
 | UNLIMITED TABLESPACE | Usa cuota ilimitada al escribir en cualquier tablespace. Este privilegio elimina las cuotas establecidas sobre el usuario, si las hubiera. |
 
 ### [](#header-3)Tablas
-
-La lista completa de privilegios es:
 
 | PRIVILEGIO          | SIGNIFICADO                                    |
 |:------------------  |:----------------------------------------------|
@@ -239,8 +229,6 @@ La lista completa de privilegios es:
 
 ### [](#header-3)Vistas
 
-La lista completa de privilegios es:
-
 | PRIVILEGIO          | SIGNIFICADO                                    |
 |:------------------  |:----------------------------------------------|
 | CREATE VIEW         | Crear vistas en el esquema del usuario         |
@@ -249,8 +237,6 @@ La lista completa de privilegios es:
 | UNDER ANY VIEW      | Crear subvistas                                 |
 
 ### [](#header-3)Instantáneas (Snapshots o vistas materializadas)
-
-La lista completa de privilegios es:
 
 | PRIVILEGIO                  | SIGNIFICADO                                    |
 |:--------------------------  |:----------------------------------------------|
@@ -262,4 +248,127 @@ La lista completa de privilegios es:
 | CREATE SNAPSHOT             | Crear instantáneas (obsoleto)                   |
 | ALTER ANY SNAPSHOT          | Modificar instantáneas de cualquier usuario (obsoleto) |
 | CREATE ANY SNAPSHOT         | Crear instantáneas a cualquier usuario (obsoleto) |
-| DROP ANY SNAPSHOT           | Borrar instantáneas (obsoleto) 
+| DROP ANY SNAPSHOT           | Borrar instantáneas (obsoleto)                  |
+
+### [](#header-3)PL/SQL
+
+| PRIVILEGIO            | SIGNIFICADO                                       |
+|:------------------    |:-------------------------------------------------|
+| CREATE PROCEDURE      | Crear procedimientos y funciones PL/SQL         |
+| ALTER ANY PROCEDURE   | Modificar procedimientos y funciones de cualquier usuario |
+| CREATE ANY PROCEDURE  | Crear funciones y procedimientos en cualquier esquema |
+| DROP ANY PROCEDURE    | Borrar cualquier procedimiento en cualquier esquema |
+| EXECUTE ANY PROCEDURE | Ejecutar cualquier procedimiento en cualquier esquema |
+| CREATE TRIGGER       | Crear triggers                                    |
+| ALTER ANY TRIGGER     | Modificar triggers de cualquier usuario           |
+| CREATE ANY TRIGGER    | Crear triggers en cualquier esquema                |
+| DROP ANY TRIGGER      | Borrar triggers de cualquier esquema               |
+| ADMINISTER DATABASE TRIGGER | Crear triggers de sistema (requiere además el privilegio CREATE TRIGGER) |
+| CREATE LIBRARY        | Crear librerías de procedimientos y funciones en el esquema de usuario |
+| DROP LIBRARY          | Borrar librería de procedimientos y funciones en el esquema de usuario |
+| DROP ANY LIBRARY      | Borrar librerías de procedimientos y funciones en cualquier esquema |
+| EXECUTE ANY LIBRARY   | Ejecutar cualquier librería                       |
+
+### [](#header-3)Tipos de datos
+
+| PRIVILEGIO          | SIGNIFICADO                                           |
+|:------------------  |:-----------------------------------------------------|
+| CREATE TYPE         | Crear tipos de datos personales                      |
+| ALTER ANY TYPE      | Modificar tipos de datos personales en cualquier usuario |
+| CREATE ANY TYPE     | Crear tipos de datos en cualquier esquema           |
+| DROP ANY TYPE       | Borrar tipos de datos de cualquier esquema           |
+| EXECUTE ANY TYPE    | Permite invocar a tipos de datos personales presentes en cualquier esquema |
+
+### [](#header-3)Indices
+
+| PRIVILEGIO          | SIGNIFICADO                                           |
+|:------------------  |:-----------------------------------------------------|
+| ALTER ANY INDEX     | Modificar índices de la base de datos (incluye modificar claves primarias, secundarias,…) |
+| CREATE ANY INDEX    | Crear índices en cualquier esquema                   |
+| DROP ANY INDEX      | Borrar índices en cualquier esquema                   |
+
+### [](#header-3)Secuencias y sinonimos
+
+| PRIVILEGIO             | SIGNIFICADO                                           |
+|:------------------     |:-----------------------------------------------------|
+| ALTER ANY SEQUENCE     | Modificar secuencias de cualquier usuario             |
+| CREATE ANY SEQUENCE    | Crear secuencias en cualquier esquema                 |
+| CREATE ANY SYNONYM     | Crear sinónimos en cualquier esquema                  |
+| CREATE SEQUENCE        | Crear secuencias                                      |
+| CREATE SYNONYM         | Crear sinonimos                                      |
+| CREATE PUBLIC SYNONYM  | Crear sinónimos públicos                             |
+| DROP PUBLIC SYNONYM    | Borrar sinónimos públicos                            |
+| CREATE ANY SEQUENCE    | Crear secuencias en cualquier esquema                 |
+| DROP ANY SEQUENCE      | Borrar secuencias en cualquier esquema                 |
+| DROP ANY SYNONYM       | Borrar sinónimos en cualquier esquema                  |
+| SELECT ANY SEQUENCE    | Seleccionar cualquier secuencia de cualquier esquema  |
+
+### [](#header-3)Segmentos de rollback
+
+| PRIVILEGIO              | SIGNIFICADO                                     |
+|:------------------      |:-----------------------------------------------|
+| CREATE ROLLBACK SEGMENT | Crear segmentos de rollback                    |
+| ALTER ROLLBACK SEGMENT  | Modificar segmentos de rollback                |
+| DROP ROLLBACK SEGMENT   | Borrar segmentos de rollback                   |
+
+### [](#header-3)Varios
+
+| PRIVILEGIO               | SIGNIFICADO                                  |
+|:------------------       |:--------------------------------------------|
+| ANALYZE ANY              | Analizar cualquier tabla, clúster o índice en cualquier esquema. |
+| ANALYZE ANY DICTIONARY   | Analizar cualquier elemento del diccionario de datos |
+| SELECT ANY DICTIONARY    | Realizar SELECT sobre las vistas del diccionario de datos |
+| AUDIT ANY                | Auditar a cualquier objeto de la base de datos |
+| COMMENT ANY TABLE        | Realizar comentarios sobre tablas, columnas y vistas en cualquier esquema de la base de datos |
+| SELECT ANY TRANSACTION   | Seleccionar los datos de la vista `FLASHBACK_TRANSACTION_QUERY` que controla el proceso de la actual operación flashback |
+| FORCE ANY TRANSACTION    | Forzar aceptar (COMMIT) las transacciones en duda en un sistema distribuido de bases de datos en cualquier conexión |
+| SYSDBA                   | Privilegio general de administrador           |
+| SYSOPER                  | Privilegio general de administrador (más bajo que el anterior) |
+| FLASHBACK ARCHIVE ADMINISTER | Crea, elimina o modifica cualquier archivo de flashback |
+| DEBUG CONNECT SESSION    | Conectar la sesión a un depurador              |
+| DEBUG ANY PROCEDURE      | Conectar procedimientos, funciones y/o código Java a un depurador |
+
+### [](#header-3)Varios
+
+| PRIVILEGIO               | SIGNIFICADO                                  |
+|:------------------       |:--------------------------------------------|
+| ANALYZE ANY              | Analizar cualquier tabla, clúster o índice en cualquier esquema. |
+| ANALYZE ANY DICTIONARY   | Analizar cualquier elemento del diccionario de datos |
+| SELECT ANY DICTIONARY    | Realizar SELECT sobre las vistas del diccionario de datos |
+| AUDIT ANY                | Auditar a cualquier objeto de la base de datos |
+| COMMENT ANY TABLE        | Realizar comentarios sobre tablas, columnas y vistas en cualquier esquema de la base de datos |
+| SELECT ANY TRANSACTION   | Seleccionar los datos de la vista `FLASHBACK_TRANSACTION_QUERY` que controla el proceso de la actual operación flashback |
+| FORCE ANY TRANSACTION    | Forzar aceptar (COMMIT) las transacciones en duda en un sistema distribuido de bases de datos en cualquier conexión |
+| SYSDBA                   | Privilegio general de administrador           |
+| SYSOPER                  | Privilegio general de administrador (más bajo que el anterior) |
+| FLASHBACK ARCHIVE ADMINISTER | Crea, elimina o modifica cualquier archivo de flashback |
+| DEBUG CONNECT SESSION    | Conectar la sesión a un depurador              |
+| DEBUG ANY PROCEDURE      | Conectar procedimientos, funciones y/o código Java a un depurador |
+
+### [](#header-3) Conceder privilegios
+
+Se usa con la instrucción GRANT que funciona así:
+
+```sql
+GRANT privilegio1 TO usuario 
+[WITH ADMIN OPTION];
+```
+La opción WITH ADMIN OPTION permite que el usuario al que se le concede el privilegio puede conceder dicho privilegio a otros usuarios. Es, por tanto, una opción a utilizar con cautela.
+
+### [](#header-3) Ejemplo
+
+```sql
+GRANT CREATE SESSION, ALTER SESSION, CREATE TABLE,  
+CREATE VIEW, CREATE SYNONYM, CREATE SEQUENCE,
+CREATE TRIGGER, CREATE PROCEDURE, CREATE TYPE
+TO "USUARIO";
+```
+La opción WITH ADMIN OPTION permite que el usuario al que se le concede el privilegio puede conceder dicho privilegio a otros usuarios. Es, por tanto, una opción a utilizar con cautela.
+
+### [](#header-3) Revocar privilegios
+Retira privilegios concedidos a un usuario. Se realiza con la instrucción REVOKE que funciona de esta forma:
+
+```sql
+REVOKE privilegio1 [,privilegio2] FROM usuario;
+```
+Al revocar los privilegios, las acciones llevadas a cabo con ellos (borrar, modificar,...) no se anulan.
