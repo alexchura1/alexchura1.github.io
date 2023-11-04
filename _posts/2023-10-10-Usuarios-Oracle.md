@@ -372,3 +372,207 @@ Retira privilegios concedidos a un usuario. Se realiza con la instrucción REVOK
 REVOKE privilegio1 [,privilegio2] FROM usuario;
 ```
 Al revocar los privilegios, las acciones llevadas a cabo con ellos (borrar, modificar,...) no se anulan.
+
+### [](#header-3) Privilegios de objetos
+
+Las instrucciones vistas anteriormente otorgan o quitan permisos generales, es decir dictan qué operaciones, en general, puede realizar un usuario.
+
+Los privilegios de objeto marcan qué operaciones le están permitidas a un usuario realizar sobre el objeto.
+
+Sintaxis:
+
+```sql
+GRANT {privilegio [(listaColumnas)]  
+[,privilegio [(listaColumnas)] ] |
+ALL [PRIVILEGES]}
+ON [esquema.]objeto
+TO {usuario | rol | PUBLIC} [,{usuario | rol | PUBLIC}]
+[WITH GRANT OPTION]
+```
+
+### [](#header-3)
+La opción ALL concede todos los privilegios posibles sobre el objeto. Se pueden asignar varios privilegios a la vez y también varios posibles usuarios. La opción WITH GRANT OPTION permite al usuario al que se le conceden los privilegios, que pueda, a su vez, conceder esos mismos privilegios a otro usuario.
+
+### [](#header-3) Ejemplo
+Ejemplo de uso de GRANT con privilegios de objeto:
+
+```sql
+GRANT UPDATE, INSERT ON hr.employees TO "usuario";
+```
+
+En la siguiente tabla se enumeran los posibles privilegios que se pueden aplicar a un determinado objeto:
+
+| Privilegio | Aplicable a |
+|:-------|:------------| 
+| SELECT | Tablas, vistas, instantáneas, secuencias |
+| INSERT | Tablas, vistas |
+| UPDATE | Tablas, vistas |  
+| DELETE | Tablas, vistas |
+| ALTER | Tablas, secuencias |
+| EXECUTE | Procedimientos, funciones, paquetes, sinónimos, programas en directorios |
+| INDEX | Tablas (para crear índices en la misma) |
+| REFERENCES | Tablas (para crear claves secundarias, FOREIGN KEY) |
+| UNDER | Vistas, para crear subvistas |
+| DEBUG | Depurar procedimientos y funciones mediante programa externo |
+| ON COMMIT REFRESH | Actualizar la vista materializada (o instantánea) al realizar un COMMIT |
+| QUERY REWRITE | Escribir en la vista materializada (o instantánea) |
+| READ | Directorios | 
+| WRITE | Directorios |
+| FLASHBACK ARCHIVE | Archivos de datos flashback (activar o desactivar) |
+
+### [](#header-3)Quitar privilegios de objetos
+
+Para quitar privilegios de objetos, se utiliza la siguiente sintaxis:
+
+```sql
+-- Ejecutamos:
+REVOKE {privilegio1  [,privilegio2]  | 
+ALL [PRIVILEGES]} 
+ON [esquema.]objeto
+FROM {usuario | rol | PUBLIC} 
+[, {usuario | rol | PUBLIC}]
+[CASCADE CONSTRAINTS]
+```
+El uso de CASCADE CONSTRAINTS elimina cualquier restricción que impida el borrado del privilegio.
+
+Solo el usuario que concedió los privilegios puede revocarlos.
+
+### [](#header-3) Roles 
+
+Los roles son privilegios aglutinados sobre un mismo nombre, bajo la idea de que ese conjunto denote un uso habitual sobre la base de datos. Gracias a los roles se facilita la asignación de privilegios a los usuarios. Un usuario puede tener asignados varios roles y viceversa.
+
+### [](#header-3) Creación de roles
+
+Los roles se crean usando esta sintaxis:
+
+```sql
+CREATE ROLE rol [NOT IDENTIFIED |
+IDENTIFIED {BY password | EXTERNALLY | 
+GLOBALLY | USING package}];
+```
+La opción IDENTIFIED hace que el rol sólo pueda utilizarse si el usuario se identifica con el método que indiquemos en esta instrucción. Las formas de identificarse son las mismas formas que se utilizan al identificar un usuario (vistas anteriormente), salvo que ahora disponemos de una nueva: la opción PACKAGE que hace que el rol sólo se pueda utilizar si usamos el paquete de aplicaciones indicado.
+
+Por defecto un rol no requiere identificación.
+
+### [](#header-3) Modificación de roles
+Disponemos de la instrucción ALTER ROLE permite modificar la configuración del rol. Tiene las mismas opciones que CREATE ROLE y sólo se usa si deseamos establecer un nuevo método para autentificarnos.
+
+### [](#header-3) Asignar y retirar privilegios a roles
+Se realiza con la instrucción GRANT y se usa igual que cuando establecemos permisos a los usuarios, en la sintaxis de los comandos GRANT y REVOKE vistas anteriormente, simplemente se indicaría un nombre de rol en lugar de un nombre de usuario. Por ejemplo si deseamos asignar los privilegios CREATE TABLE y CONNECT a un rol llamado rol1. Se haría:
+
+```sql
+GRANT CREATE TABLE, CONNECT TO rol1;
+```
+
+De la misma forma, podemos quitar privilegios asignados a un rol mediante el comandol REVOKE:
+
+```sql
+REVOKE CREATE TABLE FROM rol1;
+```
+
+### [](#header-3) Asignar roles a usuarios
+La sintaxis completa para asignar roles a un usuario es:
+
+```sql
+GRANT rol1 [,rol2 ] 
+TO {usuario|rol|PUBLIC ,{usuario|rol|PUBLIC} }
+[WITH ADMIN OPTION];
+```
+
+Al igual que en las instrucciones anteriores, PUBLIC asigna el rol a todos los usuarios y WITH ADMIN OPTION permite al usuario al que se le concede el rol, conceder él dicho rol a otros usuarios/as.
+
+### [](#header-3) Roles predefinidos
+
+| Rol | Significado |  
+|:-----------|:------------|
+| CONNECT | Permite crear sesiones. Se mantiene por compatibilidad |
+| RESOURCE | Permite crear tablas y código PL/SQL del tipo que sea. Se mantiene por compatibilidad |
+| DBA | Permite casi todo, excepto manejar la instancia de la base de datos |
+
+
+### [](#header-3) Borrar roles  
+
+Lo hace la instrucción **DROP ROLE**, seguida del rol a borrar. Desde ese momento a los usuarios a los que se habían asignado el rol se les revoca.
+
+### [](#header-3) Mostrar información sobre privilegios
+
+| Vista | Significado |
+|:-----------|:------------|
+| DBA_ROLES | Permite crear sesiones. Se mantiene por compatibilidad |
+| DBA_ROLES_PRIVS | Permite crear tablas y código PL/SQL del tipo que sea. Se mantiene por compatibilidad |
+| ROLE_ROLES_PRIVS | Permite casi todo, excepto manejar la instancia de la base de datos |
+| DBA_SYS_PRIVS | Permite crear sesiones. Se mantiene por compatibilidad |
+| ROLE_SYS_PRIVS | Permite crear tablas y código PL/SQL del tipo que sea. Se mantiene por compatibilidad |
+| ROLE_TAB_PRIVS | Permite casi todo, excepto manejar la instancia de la base de datos |
+| SESSION_ROLES | Permite casi todo, excepto manejar la instancia de la base de datos |
+
+### [](#header-3) Perfiles
+
+Los perfiles permiten limitar los recursos que los usuarios usan de la base de datos. Hay un perfil llamado **DEFAULT** que se aplica automáticamente a todos los usuarios y que les da recursos ilimitados sobre la base de datos. Para limitar el número de recursos se debe de activar (poniéndola el valor **TRUE**) la variable de sistema **RESOURCE_LIMIT** (que por defecto está a **FALSE**). Con la siguiente sentencia:
+
+```sql
+ALTER SYSTEM RESOURCE_LIMIT = TRUE SCOPE='OPCION';
+Al igual que en las instrucciones anteriores, PUBLIC asigna el rol a todos los usuarios y WITH ADMIN OPTION permite al usuario al que se le concede el rol, conceder él dicho rol a otros usuarios/as.
+```
+
+### [](#header-3) Parámetros de manejo de contraseñas
+En realidad hay dos tipos de parámetros de los perfiles:
+
+Parámetros de manejo de contraseñas que gestionan el funcionamiento de las contraseñas para el usuario.
+| Variable de perfil | Significado |
+|:-----------|:------------|
+| FAILED_LOGIN_ATTEMPTS | Número consecutivo de errores en las contraseñas antes de bloquear la cuenta. Por defecto son 10 |
+| PASSWORD_LOCK_TIME | Número de días hasta que se bloquea una cuenta si se supera el límite de intentos al meter una contraseña. Por defecto es uno |
+| PASSWORD_LIFE_TIME | Números de días que tiene vigencia una contraseña. Por defecto es 180 |
+| PASSWORD_GRACE_TIME | Días que la contraseña se la concede un periodo extra de gracia tras consumir su tiempo de vida. Por defecto es 7 |
+| PASSWORD_REUSE_TIME | Número de días que una contraseña puede ser reutilizada |
+| PASSWORD_VERIFY_FUNCTION | Función a la que se invoca cuando se modifica una contraseña con el fin de verificar su validez en base a las reglas de complejidad que deseemos |
+
+### [](#header-3) Parámetros relacionados con el uso de recursos
+En realidad hay dos tipos de parámetros de los perfiles:
+
+Parámetros relacionados con el uso de recursos Establecen el máximo o mínimo uso de recursos de la base de datos por parte del usuario.
+
+| Variable de perfil | Significado |
+|:-----------|:------------|
+| SESSIONS_PER_USER | Número de conexiones de usuario concurrentes que se permiten. |
+| CPU_PER_SESSION | Límite de tiempo (en centésimas de segundo) que se permite a un usuario utilizar la CPU antes de ser echado del sistema. De esa forma se evitan peligros de rendimiento |
+| CPU_PER_CALL | Como la anterior pero referida a cada proceso |
+| PRIVATE_SGA | Para conexiones en instalaciones de servidor compartido, número de KB que puede consumir cada sesión en la zona de memoria compartida (SGA) |
+| CONNECT_TIME | Minutos como máximo que se permite a una sesión |
+| IDLE_TIME | Minutos máximos de inactividad de una sesión |
+| LOGICAL_READS_PER_SESSION | Máximo número de bloques leídos en una sesión |
+| LOGICAL_READS_PER_CALL | Máximo número de bloques leídos por un proceso |
+| COMPOSITE_LIMIT | Máximo número de recursos consumidos por una sesión. Es la media ponderada de varios parámetros anteriores |
+
+### [](#header-3) Crear perfiles
+La creacion de perfiles sigue la siguiente sintaxis:
+
+```sql
+CREATE PROFILE perfil 
+LIMIT 
+parametro1 valor1 
+[parametro2 valor];
+```
+Los parámetros a especificar son los que aparecen en la tabla anterior. A cada parámetro se le indica un valor, o bien la palabra DEFAULT si deseamos que tome su valor por defecto, o bien UNLIMITED para indicar que el parámetro tomará un valor de infinito.
+
+### [](#header-3) Ejemplo
+
+```sql
+CREATE PROFILE programador LIMIT
+            SESSIONS_PER_USER UNLIMITED
+            CPU_PER_SESSION UNLIMITED		
+            IDLE_TIME 15
+            CONNECT_TIME 150
+            FAILED_LOGIN_ATTEMPTS 5
+            PASSWORD_LOCK_TIME 2;
+```
+
+### [](#header-3) Modificar perfiles
+La instrucción ALTER PROFILE funciona igual que CREATE PROFILE y es la encargada de hacer modificaciones a un perfil creado.
+
+```sql
+ALTER PROFILE programador LIMIT
+            FAILED_LOGIN_ATTEMPTS 2
+            PASSWORD_LOCK_TIME 5;
+```
