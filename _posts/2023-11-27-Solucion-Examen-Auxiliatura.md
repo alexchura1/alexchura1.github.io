@@ -2,6 +2,7 @@
 title: Solucionario Examen auxiliatura regular
 published: true
 ---
+
 *   Que es un tablespace
 **Es un espacio lógico donde se almacenan los datos de los objetos en una base de datos**
 
