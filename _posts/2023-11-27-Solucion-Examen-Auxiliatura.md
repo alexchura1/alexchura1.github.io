@@ -10,7 +10,7 @@ published: true
 *   Escriba la sentencia completa de la creacion de un tablespace en oracle
 ```sql
 CREATE TABLESPACE TBS_ABRAHAM
-DATAFILE 'C:\TBS_ABRAHAM.DBF'
+DATAFILE 'ruta_datafiles/datafile.DBF'
 SIZE 100M
 AUTOEXTEND ON
 NEXT 20M
