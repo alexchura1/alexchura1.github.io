@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Dactilografía</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Interruptor de modo oscuro -->
+    <div class="modo-oscuro">
+      <label for="toggleModoOscuro">Modo Oscuro</label>
+      <input type="checkbox" id="toggleModoOscuro">
+    </div>
+
+    <!-- Pantalla de inicio -->
+    <div id="inicio">
+      <h1>Juego de Dactilografía</h1>
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+      <label for="dificultad">Selecciona la dificultad:</label>
+      <select id="dificultad">
+        <option value="facil">Fácil</option>
+        <option value="medio">Medio</option>
+        <option value="dificil">Difícil</option>
+      </select>
+      <button id="comenzar">Comenzar</button>
+    </div>
+
+    <!-- Pantalla del juego -->
+    <div id="juego" style="display: none;">
+      <h1 id="titulo-juego"></h1>
+      <p id="texto">Escribe la oración que aparece aquí:</p>
+      <div id="frase"></div>
+      <input type="text" id="entrada" placeholder="Empieza a escribir..." autocomplete="off">
+      <p id="resultado"></p>
+      <p id="tiempo-restante">Tiempo restante: 5:00</p>
+      <p id="precision-actual">Precisión actual: 0%</p>
+      <p id="puntaje">Puntaje acumulado: 0%</p>
+    </div>
+
+    <!-- Pantalla de resultados -->
+    <div id="resultados" style="display: none;">
+      <h1>Resultados Finales</h1>
+      <p id="resultado-final"></p>
+      <button id="reiniciar">Reiniciar</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Variables CSS para el modo claro y oscuro */
+:root {
+  --color-fondo: #f9f9f9;
+  --color-texto: #333;
+  --color-borde: #ccc;
+  --color-boton: #007bff;
+  --color-boton-hover: #0056b3;
+  --color-frase: #fff;
+}
+
+[data-theme="dark"] {
+  --color-fondo: #333;
+  --color-texto: #f9f9f9;
+  --color-borde: #555;
+  --color-boton: #555;
+  --color-boton-hover: #777;
+  --color-frase: #444;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background-color: var(--color-fondo);
+}
+
+.modo-oscuro {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#inicio, #juego, #resultados {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+input, select {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: var(--color-boton-hover);
+}
+
+#frase {
+  font-size: 24px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-frase);
+}
+
+#resultado, #tiempo-restante, #precision-actual, #puntaje {
+  margin-top: 20px;
+  font-size: 20px;
+  color: green;
+}
+
+#resultados {
+  font-size: 24px;
+}
