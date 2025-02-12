@@ -93,3 +93,9 @@ button:hover {
 #resultados {
   font-size: 24px;
 }
+
+#dificultad-juego, #dificultad-resultado {
+  font-size: 18px;
+  color: var(--color-texto);
+  margin-top: 10px;
+}
